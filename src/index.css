@@ -6,6 +6,7 @@
   margin: 0;
   font-family: "Hanken Grotesk", sans-serif;
   cursor: default;
+  overflow-y: hidden; /*remover barra de rolagem no eixo y, ou seja na vertical.*/
 }
 
 .Container-box{
@@ -16,3 +17,12 @@ height: 500px;
    overflow: hidden;
    box-shadow: 5px 10px 30px hsl(241, 100%, 89%) ;
 }
+
+.ConteudoBox{
+  display: flex;
+justify-content: space-between;
+padding: 15px;
+border-radius: 10px;
+background-color:#fff0ed;
+}
+

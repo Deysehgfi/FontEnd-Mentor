@@ -6,6 +6,12 @@ import {motion} from "framer-motion"
 import Iconimg from "./assets/images/icon-reaction.svg"
 import { Body, BoxNumber, BoxResults, BoxSummmary, ContainerBox, Number, Text, Titulo, BoxTextSumarry, InfoSumarry, TituloSummary, ConteudoBox, Categoria, Score, Botao} from "./styled/Container.js";
 
+
+/*const item = {
+    hidden: { x: 20, opacity: 0 },
+    visible: { x: 0, opacity: 1 }
+  };*/
+   
 const Container = () => {
 
 const [number, setNumber] = useState('')
@@ -19,11 +25,12 @@ useEffect(()=>{
     setNumber(JsonData[3].score)
 })
 
+
 console.log(DadosJson)
 
     return(
     <Body>
-        <motion.div initial={{x:100}} animate={{x:0}} transition={{duration:0.8}} className="Container-box">
+        <motion.div initial={{y:100}} animate={{y:0}} transition={{duration:1}} className="Container-box">
             <BoxResults>
                 <Text>Your Results</Text>
                 <BoxNumber>
@@ -35,13 +42,13 @@ console.log(DadosJson)
             <BoxSummmary>
                 <InfoSumarry>
                     <TituloSummary>Summary</TituloSummary>
-                    <BoxTextSumarry> {DadosJson.map((dados) => (
-                        
-                        <ConteudoBox>
+                    <BoxTextSumarry> 
+                        {DadosJson.map((dados) => (
+                        <motion.div className="ConteudoBox" /*variants={item}*/ initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{duration:1}}>
                             <motion.img animate={{x:10}} src={Iconimg} alt=""/>
                         <Categoria>{dados.category}</Categoria>
                         <Score><strong>{dados.score}</strong>/100</Score>
-                        </ConteudoBox>
+                        </motion.div>
             ))}
                     </BoxTextSumarry>
 
